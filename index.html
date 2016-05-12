@@ -12,7 +12,7 @@
     <![endif]-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <title>Heading Anchor Converter for Markdown</title>
-    <style>.anchor svg{visibility: hidden;}.anchor:hover svg{visibility: visible;}</style>
+    <style>.anchor svg{visibility: hidden;}.anchor:hover svg{visibility: visible;}.row{padding-top:30px;}</style>
     <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-touch-icon-72x72.png">
@@ -43,11 +43,11 @@
 
 <body>
     <div class='container' style="height:100vh;">
-        <div class="row" style="text-align:center;padding:20px;">
+        <div class="row" style="text-align:center;">
             <div class="col-sm-12">
               <h1 id="title">
                 <a class="anchor" href="#title" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="32" role="img" version="1.1" viewBox="0 0 16 16" width="32"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg>
-                # [Heading](#Anchor) Converter</a>
+                #[Heading](#Anchor) Converter</a>
                 <small style="white-space: nowrap;">for Markdown <span class="badge">&alpha;</span></small>
             </div>
             <div class="col-sm-12">
@@ -55,26 +55,22 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-sm-12" style="height:500px;">
+            <div class="col-md-6 col-sm-12" style="height:200px;">
+                <label>Input:</label>
                 <textarea id="code" style="width:100%;height:100%;" placeholder="Paste Markdown code here."></textarea>
             </div>
-            <div class="col-md-6 col-sm-12" style="height:500px;">
+            <div class="col-md-6 col-sm-12" style="height:200px;">
+                <label>Output:</label>
                 <textarea id="result" style="width:100%;height:100%;"></textarea>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-sm-12" style="height:100px;">
-                <textarea id="codediff" style="width:100%;height:100%;" disabled>
-# H1
-## H2
-### H3
-                </textarea>
-            </div>
-            <div class="col-md-6 col-sm-12" style="height:100px;">
-                <textarea id="resultdiff" style="width:100%;height:100%;" disabled>
-# [H1](#h1)
-## [H2](#h2)
-### [H3](#h3)
+            <div class="col-sm-12" style="height:300px;">
+                <label>Log:</label>
+                <textarea id="console" style="width:100%;height:100%;" disabled>
+PASS:	# H1 => # [H1](#h1)
+PASS:	## H2 => ## [H2](#h2)
+PASS:	### H3 => ### [H3](#h3)
                 </textarea>
             </div>
         </div>
