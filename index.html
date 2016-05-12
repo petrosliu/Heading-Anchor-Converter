@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <title>Heading Anchor Converter for Markdown</title>
+
+    <style>.anchor svg{visibility: hidden;}.anchor:hover svg{visibility: visible;}</style>
+
+</head>
+
+<body>
+    <div class='container' style="height:100vh;">
+        <div class="row" style="text-align:center;padding:20px;">
+            <div class="col-sm-12">
+              <h1 id="title">
+                <a class="anchor" href="#title" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="32" role="img" version="1.1" viewBox="0 0 16 16" width="32"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg>
+                # [Heading](#Anchor)Converter</a>
+                <small style="white-space: nowrap;">for Markdown</small>
+            </div>
+            <div class="col-sm-12">
+                <button class="btn btn-default" onclick="convert()" type="button"><svg width="11" height="11" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1639 1056q0 5-1 7-64 268-268 434.5t-478 166.5q-146 0-282.5-55t-243.5-157l-129 129q-19 19-45 19t-45-19-19-45v-448q0-26 19-45t45-19h448q26 0 45 19t19 45-19 45l-137 137q71 66 161 102t187 36q134 0 250-65t186-179q11-17 53-117 8-23 30-23h192q13 0 22.5 9.5t9.5 22.5zm25-800v448q0 26-19 45t-45 19h-448q-26 0-45-19t-19-45 19-45l138-138q-148-137-349-137-134 0-250 65t-186 179q-11 17-53 117-8 23-30 23h-199q-13 0-22.5-9.5t-9.5-22.5v-7q65-268 270-434.5t480-166.5q146 0 284 55.5t245 156.5l130-129q19-19 45-19t45 19 19 45z"/></svg> Convert</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12" style="height:500px;">
+                <textarea id="code" style="width:100%;height:100%;" placeholder="Copy Markdown code here."></textarea>
+            </div>
+            <div class="col-md-6 col-sm-12" style="height:500px;">
+                <textarea id="result" style="width:100%;height:100%;"></textarea>
+            </div>
+        </div>
+        <div class="row" style="height:10%;">
+            <div class="col-md-6 col-sm-12" style="height:100px;">
+                <textarea id="codediff" style="width:100%;height:100%;" disabled>
+# H1
+## H2
+### H3
+                </textarea>
+            </div>
+            <div class="col-md-6 col-sm-12" style="height:100px;">
+                <textarea id="resultdiff" style="width:100%;height:100%;" disabled>
+# [H1](#h1)
+## [H2](#h2)
+### [H3](#h3)
+                </textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12" align="center" style="padding-top:20px;color: gray;">
+                Copyright <a href='https://github.com/petrosliu/Heading-Anchor-Converter' style="text-decoration:none;color:gray;"><svg fill="#808080" width="13" height="13" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1664 896q0 251-146.5 451.5t-378.5 277.5q-27 5-39.5-7t-12.5-30v-211q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-121-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-86-13.5q-44 113-7 204-79 85-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-40 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 89t.5 54q0 18-13 30t-40 7q-232-77-378.5-277.5t-146.5-451.5q0-209 103-385.5t279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z"/></svg></a> 2016 <a href='http://liuyid.in/' style="text-decoration: none; color: gray;">Yiding Liu</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="anchors.js"></script>
+</body>
+
+</html>
