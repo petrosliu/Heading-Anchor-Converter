@@ -35,3 +35,9 @@ function convert(){
     document.getElementById("console").value = consoletext.join('\n');
     window.location = '#result';
 };
+
+function clearinput(){
+    document.getElementById("code").value = "";
+    document.getElementById("result").value = "";
+    document.getElementById("console").value = "Example:\nPASS:	# H1 => # [H1](#h1)\nPASS:	## H2 => ## [H2](#h2)\nPASS:	### H3 => ### [H3](#h3)";
+}
